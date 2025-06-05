@@ -13,6 +13,11 @@ const ElevatorShaft = ({
     return currentFloor * 100;
   };
 
+  const getTransitionDuration = () => {
+    const BASE_DURATION_PER_FLOOR = 1500;
+    return BASE_DURATION_PER_FLOOR;
+  };
+
   const handleOutsideButtonClick = (floor, direction) => {
     if (direction === 'up') {
       addRequest('outsideUp', floor);
@@ -50,12 +55,14 @@ const ElevatorShaft = ({
       </div>
 
       {/* Shaft Visualization */}
-      <div className="bg-gray-900 rounded-xl p-4 h-[500px] relative overflow-hidden">
-        {/* Elevator Car */}
+      <div className="bg-gray-900 rounded-xl p-4 h-[600px] relative overflow-hidden">
         <div
-          className={`absolute left-1/2 transform -translate-x-1/2 w-48 h-24 bg-gradient-to-r from-cyan-700 to-blue-800 rounded-lg flex items-center justify-center shadow-lg border border-cyan-500/30 transition-all duration-[3500ms] ease-in-out ${isMoving ? 'opacity-90' : 'opacity-100'
+          className={`absolute left-1/2 transform -translate-x-1/2 w-48 h-24 bg-gradient-to-r from-cyan-700 to-blue-800 rounded-lg flex items-center justify-center shadow-lg border border-cyan-500/30 transition-all ease-in-out ${isMoving ? 'opacity-90' : 'opacity-100'
             }`}
-          style={{ bottom: `${getElevatorPosition()}px` }}
+          style={{ 
+            bottom: `${getElevatorPosition()}px`,
+            transitionDuration: `${getTransitionDuration()}ms`
+          }}
         >
           <div className="text-center z-10">
             <div className="text-2xl font-bold mb-1">
@@ -75,10 +82,10 @@ const ElevatorShaft = ({
         </div>
 
         {/* Floors */}
-        {FLOORS.slice(0, 5).reverse().map((floorNumber) => {
+        {FLOORS.slice(0, 6).reverse().map((floorNumber) => {
           const position = floorNumber * 100;
           const isCurrentFloor = currentFloor === floorNumber;
-          const hasUpButton = floorNumber < Math.max(...FLOORS.slice(0, 5));
+          const hasUpButton = floorNumber < Math.max(...FLOORS.slice(0, 6));
           const hasDownButton = floorNumber > 0;
 
           return (

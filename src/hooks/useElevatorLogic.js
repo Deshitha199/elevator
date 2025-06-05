@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 
-const FLOORS = [0, 1, 2, 3, 4];
-const MOVE_DELAY = 2000;
+const FLOORS = [0, 1, 2, 3, 4, 5];
+const MOVE_DELAY = 1500;
 const DOOR_DELAY = 3000;
 
 function useElevatorLogic() {

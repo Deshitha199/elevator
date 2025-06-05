@@ -46,6 +46,12 @@ const ElevatorControls = ({ addRequest, isButtonActive }) => {
             isActive={isButtonActive('inside', 4)}
             onClick={() => handleFloorClick(4)}
           />
+          <ControlButton
+            label="5"
+            subtitle="Fifth"
+            isActive={isButtonActive('inside', 5)}
+            onClick={() => handleFloorClick(5)}
+          />
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ A modern, interactive elevator system simulator built with React and Vite. This 
 - **Visual Feedback**: Modern UI with smooth animations and status indicators
 - **Request Tracking**: See active requests for inside, outside up, and outside down calls
 - **Door States**: Realistic door opening/closing animations
-- **Multi-floor Support**: 5-floor building (Ground + 4 floors)
+- **Multi-floor Support**: 6-floor building (Ground + 5 floors)
 
 ## 🚀 Getting Started
 
@@ -28,7 +28,7 @@ A modern, interactive elevator system simulator built with React and Vite. This 
 
 ## 🎮 How to Use
 
-1. **Inside Controls**: Click the elevator control panel buttons (G, 1, 2, 3, 4) to request floors from inside the elevator
+1. **Inside Controls**: Click the elevator control panel buttons (G, 1, 2, 3, 4, 5) to request floors from inside the elevator
 2. **Outside Controls**: Click the up/down arrows on each floor to call the elevator
 3. **Watch the Magic**: The elevator uses a smart SCAN algorithm to efficiently serve all requests
 4. **Track Requests**: Monitor active requests in the status panel
@@ -61,7 +61,6 @@ Think of the elevator like a bus that follows a simple rule: **"Keep going in th
 ### Example:
 - You're on Ground floor, press buttons: 4, then 3, then 1
 - Elevator thinks: "I'm going UP, so I'll visit floors in order: 1 → 3 → 4"
-- Not: "Go to nearest floor first" ❌
 
 ### Why This Works:
 - **Efficient**: Like a bus route, it doesn't zigzag randomly
