@@ -1,0 +1,55 @@
+import ControlButton from './ControlButton';
+
+const ElevatorControls = ({ addRequest, isButtonActive }) => {
+  const handleFloorClick = (floorNumber) => {
+    addRequest('inside', floorNumber);
+  };
+
+  return (
+    <div className="bg-gray-800/50 backdrop-blur rounded-2xl p-6 shadow-xl">
+      <h2 className="text-xl font-semibold mb-5 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+        </svg>
+        Elevator Controls
+      </h2>
+
+      <div className="bg-gray-900/50 rounded-xl p-4">
+        <div className="grid grid-cols-3 gap-4">
+          <ControlButton
+            label="G"
+            subtitle="Ground"
+            isActive={isButtonActive('inside', 0)}
+            onClick={() => handleFloorClick(0)}
+          />
+          <ControlButton
+            label="1"
+            subtitle="First"
+            isActive={isButtonActive('inside', 1)}
+            onClick={() => handleFloorClick(1)}
+          />
+          <ControlButton
+            label="2"
+            subtitle="Second"
+            isActive={isButtonActive('inside', 2)}
+            onClick={() => handleFloorClick(2)}
+          />
+          <ControlButton
+            label="3"
+            subtitle="Third"
+            isActive={isButtonActive('inside', 3)}
+            onClick={() => handleFloorClick(3)}
+          />
+          <ControlButton
+            label="4"
+            subtitle="Fourth"
+            isActive={isButtonActive('inside', 4)}
+            onClick={() => handleFloorClick(4)}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ElevatorControls;
